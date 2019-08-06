@@ -1,0 +1,25 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT 
+  #Get numer of entries and Create Dictionary
+  
+n = int(input())
+phoneBook = {} 
+
+  #Define if the name is the phoneBook
+def IsOrNot(name):
+    if name in phoneBook.keys():
+        print(name+"="+phoneBook[name])
+    else:
+        print("Not found")
+  #Insert the data to the dictionary
+  
+for i in range(0, n):
+    phonebook = input().split()
+    phoneBook[phonebook[0]] = phonebook[1]
+    
+    #Get the numbers in the dictionary
+    
+while True:
+    try:  
+        IsOrNot(input())
+    except EOFError:  #if there is no more entries the while will break
+        break
