@@ -1,0 +1,24 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the factorial function below.
+def factorial(n):  
+    if n < 2:
+        return (1) #important return 1 to multiplay it to the end of recursion
+    return(n * factorial(n-1)) # each time factorial is call it will lose n-1  until reach value of 1
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    result = factorial(n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
