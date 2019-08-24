@@ -1,0 +1,26 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    n = int(input())
+    ConsBiNum = bin(n)[2:] # bin gives str output
+    count = 0
+    count1 = 0
+    for i in range (0, len (ConsBiNum)):
+        
+        if int(ConsBiNum[i]) == 1: #convert str to int variable
+
+            if (int(ConsBiNum[i]) == int(ConsBiNum[i-1])) and i > 0:
+                count += 1
+            else:
+                count = 1
+        if count > count1:
+            count1 = count 
+    print (count1)
