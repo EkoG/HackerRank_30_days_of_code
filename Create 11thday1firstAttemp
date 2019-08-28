@@ -1,0 +1,25 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    arr = []
+
+    
+    for _ in range(6): #fill the matrix with examples
+        arr.append(list(map(int, input().rstrip().split())))
+    SumHourglass = float('-inf') #the variable is set in the minimun value if the matrix has negative numbers !
+    TotalHourglass = float('-inf')
+    for i in range(len(arr)-2): #The possible values for a matrix
+        for j in range(len(arr)-2):
+            SumHourglass = arr[j][i] + arr[j][i+1] + arr[j][i+2] + arr[j+1][i+1] + arr[j+2][i] + arr[j+2][i+1] + arr[j+2][i+2] # All the values that probably coud be sum to get the hourglass
+            if SumHourglass > TotalHourglass:
+                TotalHourglass = SumHourglass
+
+    print(TotalHourglass)
