@@ -1,16 +1,16 @@
 class Solution:
     # Write your code here
     def __init__(self):
-        self.stack = []
+        self.stack = []  #inicializamos variables porque son de la clase, no del programa
         self.queue = []
 
-    def pushCharacter(self,s):
+    def pushCharacter(self,s): # la variable S es otorgada a nosotros, en la linea 27 o 28
         self.stack.append(s)
     
     def enqueueCharacter(self, s):
         self.queue.insert(0,s)
     
-    def popCharacter(self):
+    def popCharacter(self):   # sólo se regresa el elemento y borra, por la estructura del mismo
         return self.stack.pop()
     
     def dequeueCharacter(self):
