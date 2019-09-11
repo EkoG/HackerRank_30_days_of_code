@@ -1,0 +1,17 @@
+class AdvancedArithmetic(object):  #Interface
+    def divisorSum(n):
+        raise NotImplementedError
+
+class Calculator(AdvancedArithmetic): #Implementación de codigo
+    def divisorSum(self, n):  
+        s = 1
+        for i in range(2, n + 1):  # obtener todos los divisores
+            if (n % i) == 0:
+                s += i             # sumar todos los divisores
+        return s
+
+n = int(input())
+my_calculator = Calculator()
+s = my_calculator.divisorSum(n)
+print("I implemented: " + type(my_calculator).__bases__[0].__name__)
+print(s)
