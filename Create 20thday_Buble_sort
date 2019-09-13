@@ -5,8 +5,8 @@ import sys
 n = int(input().strip())
 a = list(map(int, input().strip().split(' ')))
 # Write Your Code Here
-numSwaps = 0 
-for i in range(0, n):
+numSwaps = 0                         # I could do that inside of a function
+for i in range(0, n):  
     for j in range(0, n - 1):
         if a[j] > a[j+1]:
             a[j], a[j+1] = a[j+1], a[j]
