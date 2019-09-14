@@ -1,0 +1,37 @@
+import sys
+
+class Node:
+    def __init__(self,data):
+        self.right=self.left=None
+        self.data = data
+class Solution:
+    def insert(self,root,data):
+        if root==None:
+            return Node(data)
+        else:
+            if data<=root.data:
+                cur=self.insert(root.left,data)
+                root.left=cur
+            else:
+                cur=self.insert(root.right,data)
+                root.right=cur
+        return root
+
+    def levelOrder(self,root):
+        #Write your code here      
+        data = [root] if root else []         # Si existe, el array data se crea con root, sino está vacio
+        while data:                           # NO SE PUDO REALIZAR RECURSIVO, YA QUE NECESITA IMPRIMIRSE Y NO UTILIZA RETURN
+            root = data.pop()                 # la raiz toma el valor del ultimo dato root y borra cada valor anterior
+            print(root.data, end=" ")         # formato para imprimir todo en el mismo espacio en una sola linea con espacio cada uno
+            if root.left:                     # existe el hijo IZQUIERDO DE LA RAIZ, si es así insertalo, como valor inicial
+                data.insert(0,root.left)
+            if root.right:                    # existe el hijo DERECHO DE LA RAIZ, si es así insertalo, como valor inicial
+                data.insert(0,root.right)
+      
+T=int(input())
+myTree=Solution()
+root=None
+for i in range(T):
+    data=int(input())
+    root=myTree.insert(root,data)
+myTree.levelOrder(root)
