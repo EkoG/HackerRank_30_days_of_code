@@ -1,0 +1,46 @@
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None 
+class Solution: 
+    def insert(self,head,data):
+            p = Node(data)           
+            if head==None:
+                head=p
+            elif head.next==None:
+                head.next=p
+            else:
+                start=head
+                while(start.next!=None):
+                    start=start.next
+                start.next=p
+            return head  
+    def display(self,head):
+        current = head
+        while current:
+            print(current.data,end=' ')
+            current = current.next
+
+    def removeDuplicates(self,head):
+        #Write your code here
+        Is = [] # Array that keeps track of elements in linked list
+        node = head 
+        prev = None 
+        while node:
+            if node.data in Is:
+                prev.next = node.next #How to errase a node
+            else:
+                Is.append(node.data)
+                prev = node # important the node is now the previous node
+            node = node.next       
+        return head return the linked list
+
+
+mylist= Solution()
+T=int(input())
+head=None
+for i in range(T):
+    data=int(input())
+    head=mylist.insert(head,data)    
+head=mylist.removeDuplicates(head)
+mylist.display(head); 
