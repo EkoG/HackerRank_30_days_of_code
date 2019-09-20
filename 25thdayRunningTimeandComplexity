@@ -1,0 +1,19 @@
+
+def IsPrime(n):
+    if n == 1:                                  #implementación de optimiazación
+        return False
+    else:
+        nroot = int(n**0.5)                     # obtener raiz
+        for i in range(2, nroot + 1):           # buscar  por cada numero primo mayor a dos si es primo
+            if ((n % i) == 0:                   # comparar para cada numero primo si este es divisible
+                return False                    # No se puede imprimir, ya que esto es iterativo, si se imprime se imprimiría varías veces Not Prime
+            
+        return True
+
+T = int(input())
+for i in range(T):
+    data = int(input())
+    if IsPrime(data):
+        print ("Prime")
+    else:
+        print("Not prime")
