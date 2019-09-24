@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+Date = list(map(int, input().split()))
+EDate = list(map(int, input().split()))
+if EDate[2] >= Date[2]:
+    if EDate[2] > Date[2]:
+        print(0)
+    elif (EDate[1] >= Date[1]) and (EDate[2] == Date[2]):
+        if EDate[0] <= Date[0]:
+            print((Date[0]-EDate[0])*15)
+        else:
+            print(0)
+    else:
+        print((Date[1]-EDate[1])*500)
+else:
+    print(10000)
