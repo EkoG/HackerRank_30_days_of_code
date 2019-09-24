@@ -1,0 +1,17 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from datetime import date
+Date = list(map(int, input().split()))
+EDate = list(map(int, input().split()))
+
+Date = date(day=Date[0], month=Date[1], year=Date[2])
+EDate = date(day=EDate[0], month=EDate[1], year=EDate[2])
+
+if EDate < Date: #Expexted day vs Date Delivered
+    if Date.year > EDate.year:
+        print(10000)
+    elif (Date.year == EDate.year) and (Date.month == EDate.month):
+        print ((Date.day-EDate.day)*15)
+    else:
+        print((Date.month - EDate.month)*500)
+else:
+    print (0)
