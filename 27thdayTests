@@ -1,0 +1,45 @@
+def minimum_index(seq):
+    if len(seq) == 0:
+        raise ValueError("Cannot get the minimum value index from an empty sequence")
+    min_idx = 0
+    for i in range(1, len(seq)):
+        if seq[i] < seq[min_idx]:
+            min_idx = i
+    return min_idx
+class TestDataEmptyArray(object):
+    
+    @staticmethod
+    def get_array():
+        # complete this function
+        return []
+import random
+class TestDataUniqueValues(object):
+    array = []                                    #Crear una lista 
+    while len(array) < 3:                                 
+        array.append(random.randint(0, 100))      #lista con valores aleatoreos
+    @staticmethod
+    def get_array():
+        # complete this function
+        return TestDataUniqueValues.array         #Regresar la lista de la clase "TestDataUniqueValues"
+
+    @staticmethod
+    def get_expected_result():
+        # complete this function
+        array = TestDataUniqueValues.get_array() #obtener la clase de la lista "TestDataUniqueValues"
+        return array.index(min(array))           #obtener el valor indice minimo del valor minimo
+
+class TestDataExactlyTwoDifferentMinimums(object):
+    array = [0,0]                                #crear dos valores minimos indices 0 y 1 
+    while len(array) < 3:
+        array.append(random.randint(0, 100))     # lista de 3 valores
+    @staticmethod
+    def get_array():
+        # complete this function
+        return TestDataExactlyTwoDifferentMinimums.array #Regresar la lista
+
+
+    @staticmethod
+    def get_expected_result():
+        # complete this function
+        return TestDataExactlyTwoDifferentMinimums.array[0] #regresar  el valor indice minimo del valor minimo puede hacerse lo mismo que en la pasada
+
